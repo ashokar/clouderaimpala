@@ -20,7 +20,8 @@ public class ClouderaImpalaJdbcExample {
         private static void loadConfiguration() throws IOException {
                 InputStream input = null;
                 try {
-                        String filename = ClouderaImpalaJdbcExample.class.getSimpleName() + ".conf";
+                        //String filename = ClouderaImpalaJdbcExample.class.getSimpleName() + ".conf";
+						String filename = "ClouderaHiveServer2.conf";
                         input = ClouderaImpalaJdbcExample.class.getClassLoader().getResourceAsStream(filename);
                         Properties prop = new Properties();
                         prop.load(input);
