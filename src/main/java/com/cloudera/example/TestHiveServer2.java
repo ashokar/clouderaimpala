@@ -121,10 +121,12 @@ public static class MyCallbackHandler implements CallbackHandler {
     }
 
     private static void  traverseResultSet(ResultSet rs) throws SQLException {
+        System.out.println("-- Rows from Table started ---");
 
         while(rs.next()){
             System.out.println(rs.getString(1)+","+rs.getString(2));
         }
+        System.out.println("-- Rows from Table finished ---");
     }
 
     public static void main(String[] args) {
