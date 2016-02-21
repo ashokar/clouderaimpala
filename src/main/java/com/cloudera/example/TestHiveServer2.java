@@ -141,7 +141,7 @@ public static class MyCallbackHandler implements CallbackHandler {
         try {
             conn = getConnection(sub);
             Statement stmt = conn.createStatement() ;
-            ResultSet rs = stmt.executeQuery( QUERY );
+            ResultSet rs = stmt.executeQuery( args[0] );
             traverseResultSet(rs);
         } catch (Exception e){
             e.printStackTrace();
