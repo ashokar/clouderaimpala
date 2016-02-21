@@ -25,7 +25,7 @@ public class TestHiveServer2 {
 static final String JDBC_DRIVER = "org.apache.hive.jdbc.HiveDriver";
 //static final String JDBC_DB_URL = "jdbc:hive2://http://ec2-54-226-23-31.compute-1.amazonaws.com:10000/default;principal=hive/ip-10-149-136-112.ec2.internal@SECURITY.FIRESTREAMS.COM;auth=kerberos;kerberosAuthType=fromSubject;";
 static final String JDBC_DB_URL = "jdbc:hive2://localhost:10000/default;principal=hive/ip-10-149-136-112.ec2.internal@SECURITY.FIRESTREAMS.COM;auth=kerberos;kerberosAuthType=fromSubject;";
-static String QUERY = "SELECT id, name FROM default.customers";
+static String QUERY = "SELECT name FROM default.employee";
 
 static final String USER = null;
 static final String PASS = null;
@@ -124,7 +124,7 @@ public static class MyCallbackHandler implements CallbackHandler {
         System.out.println("-- Rows from Table started ---");
 
         while(rs.next()){
-            System.out.println(rs.getString(1)+","+rs.getString(2));
+            System.out.println(rs.getString(1));
         }
         System.out.println("-- Rows from Table finished ---");
     }
