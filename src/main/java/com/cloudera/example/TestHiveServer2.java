@@ -34,7 +34,9 @@ static final String KERBEROS_REALM = "SECURITY.FIRESTREAMS.COM";
 static final String KERBEROS_KDC = "ec2-54-226-23-31.compute-1.amazonaws.com";
 static final String KERBEROS_PRINCIPAL = "arajan@SECURITY.FIRESTREAMS.COM";
 static final String KERBEROS_PASSWORD = "cloudera";
-static final String jaasConfigFilePath = "/Users/arajan/Cloudera/Jayant/Cloudera-Impala-JDBC-Example/src/main/resources/login.conf";
+//static final String jaasConfigFilePath = "/Users/arajan/Cloudera/Jayant/Cloudera-Impala-JDBC-Example/src/main/resources/login.conf";
+static final String jaasConfigFilePath = "/home/ec2-user/arajan/clouderaimpala/src/main/resources/login.conf";
+
 	/* Contents of login.conf
 SampleClient {
  com.sun.security.auth.module.Krb5LoginModule required
