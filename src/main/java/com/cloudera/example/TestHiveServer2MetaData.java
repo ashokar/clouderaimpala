@@ -123,7 +123,7 @@ public static class MyCallbackHandler implements CallbackHandler {
         System.out.println("-- Table Metadata ---");
 
         for (int i=1; i<=metaData.getColumnCount(); i++) {
-            System.out.println(" Column Name "  + metaData.getColumnName(i) + " Column Type "+metaData.getColumnTypeName(i));
+            System.out.println(" Column Name:"  + metaData.getColumnName(i) + ", Column Type: "+metaData.getColumnTypeName(i));
         }
         System.out.println("---------------------------------------------");
 
