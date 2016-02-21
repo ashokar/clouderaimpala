@@ -120,6 +120,13 @@ public static class MyCallbackHandler implements CallbackHandler {
         return rowIndex;
     }
 
+    private static void  traverseResultSet(ResultSet rs) throws SQLException {
+
+        while(rs.next()){
+            System.out.println(rs.getString(1)+","+rs.getString(2));
+        }
+    }
+
     public static void main(String[] args) {
         System.setProperty("java.security.auth.login.config", jaasConfigFilePath);
         System.setProperty("java.security.krb5.realm", KERBEROS_REALM );
@@ -133,7 +140,7 @@ public static class MyCallbackHandler implements CallbackHandler {
             conn = getConnection(sub);
             Statement stmt = conn.createStatement() ;
             ResultSet rs = stmt.executeQuery( QUERY );
-            traverseResultSet(rs, 10);
+            traverseResultSet(rs);
         } catch (Exception e){
             e.printStackTrace();
         } finally {
