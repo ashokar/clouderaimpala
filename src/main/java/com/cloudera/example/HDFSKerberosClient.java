@@ -34,7 +34,7 @@ public class HDFSKerberosClient {
         conf.set("fs.defaultFS", "webhdfs://ec2-54-226-23-31.compute-1.amazonaws.com:50070");
         conf.set("fs.webhdfs.impl", org.apache.hadoop.hdfs.web.WebHdfsFileSystem.class.getName());
         conf.set("com.sun.security.auth.module.Krb5LoginModule", "required");
-        conf.set("debug", "true");
+        //conf.set("debug", "true");
         conf.set("ticketCache", "DIR:/etc/");
 
         UserGroupInformation.setConfiguration(conf);
