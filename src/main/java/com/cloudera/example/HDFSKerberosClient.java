@@ -33,7 +33,7 @@ public class HDFSKerberosClient {
 //        conf.set("fs.defaultFS", "webhdfs://10.31.251.254:50070");
 //        conf.set("fs.webhdfs.impl", org.apache.hadoop.hdfs.web.WebHdfsFileSystem.class.getName());
 //        conf.set("com.sun.security.auth.module.Krb5LoginModule", "required");
-//        conf.set("debug", "true");
+        conf.set("debug", "true");
 //        conf.set("ticketCache", "DIR:/etc/");
         System.out.print("Conf......");
 
