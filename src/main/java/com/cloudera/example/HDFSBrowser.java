@@ -46,6 +46,7 @@ public class HDFSBrowser {
         HDFSBrowser browser = new HDFSBrowser();
 
         if (args[0].equals("list")) {
+
             if (args.length < 2) {
                 System.out.println("Usage: HDFSBrowser list <hdfs_path>");
                 System.exit(1);
