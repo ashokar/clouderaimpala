@@ -9,6 +9,7 @@ import org.apache.hadoop.fs.*;
 import org.apache.hadoop.security.UserGroupInformation;
 
 import java.io.IOException;
+import java.net.URI;
 
 
 public class HDFSKerberosClient {
@@ -30,12 +31,11 @@ public class HDFSKerberosClient {
         conf.addResource(new Path("/etc/hadoop/conf/hdfs-site.xml"));
 
         conf.set("hadoop.security.authentication", "kerberos");
-//        conf.set("fs.defaultFS", "webhdfs://10.31.251.254:50070");
-//        conf.set("fs.webhdfs.impl", org.apache.hadoop.hdfs.web.WebHdfsFileSystem.class.getName());
+        conf.set("fs.defaultFS", "webhdfs://ec2-54-226-23-31.compute-1.amazonaws.com:50070");
+        conf.set("fs.webhdfs.impl", org.apache.hadoop.hdfs.web.WebHdfsFileSystem.class.getName());
         conf.set("com.sun.security.auth.module.Krb5LoginModule", "required");
         conf.set("debug", "true");
         conf.set("ticketCache", "DIR:/etc/");
-        System.out.print("Conf......");
 
         UserGroupInformation.setConfiguration(conf);
 
@@ -43,7 +43,8 @@ public class HDFSKerberosClient {
             UserGroupInformation.loginUserFromKeytab("arajan@SECURITY.FIRESTREAMS.COM", "/home/ec2-user/arajan/arajan.keytab");
 
             Path path = new Path(args[0]);
-            FileSystem fileSystem = FileSystem.get(conf);
+            URI uri = URI.create("webhdfs://ec2-54-226-23-31.compute-1.amazonaws.com:50070");
+            FileSystem fileSystem = FileSystem.get(uri,conf);
             FileStatus[] files = fileSystem.globStatus(path);
             System.out.println("Listing "+args[0]);
                 for (FileStatus file : files ){
