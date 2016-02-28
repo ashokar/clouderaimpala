@@ -34,7 +34,7 @@ public class HDFSKerberosClient {
 //        conf.set("fs.webhdfs.impl", org.apache.hadoop.hdfs.web.WebHdfsFileSystem.class.getName());
 //        conf.set("com.sun.security.auth.module.Krb5LoginModule", "required");
         conf.set("debug", "true");
-//        conf.set("ticketCache", "DIR:/etc/");
+        conf.set("ticketCache", "DIR:/etc/");
         System.out.print("Conf......");
 
         UserGroupInformation.setConfiguration(conf);
@@ -42,19 +42,16 @@ public class HDFSKerberosClient {
         try {
             UserGroupInformation.loginUserFromKeytab("arajan@SECURITY.FIRESTREAMS.COM", "/home/ec2-user/arajan/arajan.keytab");
 
-
-        Path path = new Path(args[0]);
-        FileSystem fileSystem = FileSystem.get(conf);
-        FileStatus[] files = fileSystem.globStatus(path);
-        System.out.println("Listing "+args[0]);
-        for (FileStatus file : files ){
-            System.out.println(file.getPath().getName());
-        }
-
-        } catch (IOException ioe) {
-            ioe.printStackTrace();
-        }
-
+            Path path = new Path(args[0]);
+            FileSystem fileSystem = FileSystem.get(conf);
+            FileStatus[] files = fileSystem.globStatus(path);
+            System.out.println("Listing "+args[0]);
+                for (FileStatus file : files ){
+                    System.out.println(file.getPath().getName());
+                }
+            } catch (IOException ioe) {
+                ioe.printStackTrace();
+            }
 
 //        System.out.print("Obtained......");
 //        URI uri = URI.create("webhdfs://Dummy:50070");
