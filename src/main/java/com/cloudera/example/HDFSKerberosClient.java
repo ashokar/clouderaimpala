@@ -20,9 +20,9 @@ public class HDFSKerberosClient {
     public static void main(String[] args) {
 
         //System.setProperty("java.security.krb5.conf", );
-        System.setProperty("java.security.auth.login.config", jaasConfigFilePath);
-        System.setProperty("java.security.krb5.realm", KERBEROS_REALM );
-        System.setProperty("java.security.krb5.kdc", KERBEROS_KDC);
+        //System.setProperty("java.security.auth.login.config", jaasConfigFilePath);
+        //System.setProperty("java.security.krb5.realm", KERBEROS_REALM );
+        //System.setProperty("java.security.krb5.kdc", KERBEROS_KDC);
 
 
         Configuration conf = new Configuration();
@@ -32,7 +32,7 @@ public class HDFSKerberosClient {
         conf.set("hadoop.security.authentication", "kerberos");
 //        conf.set("fs.defaultFS", "webhdfs://10.31.251.254:50070");
 //        conf.set("fs.webhdfs.impl", org.apache.hadoop.hdfs.web.WebHdfsFileSystem.class.getName());
-//        conf.set("com.sun.security.auth.module.Krb5LoginModule", "required");
+        conf.set("com.sun.security.auth.module.Krb5LoginModule", "required");
         conf.set("debug", "true");
         conf.set("ticketCache", "DIR:/etc/");
         System.out.print("Conf......");
