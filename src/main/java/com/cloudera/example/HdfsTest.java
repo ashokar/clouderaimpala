@@ -25,6 +25,7 @@ public class HdfsTest {
                 public Void run() throws Exception {
 
                     Configuration conf = new Configuration();
+                    conf.set("hadoop.security.authentication", "kerberos");
                     conf.set("fs.defaultFS", "hdfs://ec2-54-226-23-31.compute-1.amazonaws.com:8020/user/arajan");
                     conf.set("hadoop.job.ugi", "arajan");
 
