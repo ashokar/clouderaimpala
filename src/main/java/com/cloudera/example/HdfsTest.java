@@ -17,8 +17,7 @@ public class HdfsTest {
     public static void main(String args[]) {
 
         try {
-            UserGroupInformation ugi
-                    = UserGroupInformation.createRemoteUser("arajan");
+            UserGroupInformation ugi = UserGroupInformation.createRemoteUser("arajan");
 
             ugi.doAs(new PrivilegedExceptionAction<Void>() {
 

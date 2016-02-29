@@ -13,6 +13,7 @@ import java.sql.*;
 
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.*;
+import org.apache.hadoop.security.UserGroupInformation;
 
 import javax.security.auth.Subject;
 import javax.security.auth.callback.*;
@@ -69,6 +70,7 @@ public class HDFSBrowser {
     }
 
     static Subject getSubject() {
+
         Subject signedOnUserSubject = null;
 
         // create a LoginContext based on the entry in the login.conf file
@@ -105,7 +107,7 @@ public class HDFSBrowser {
 
                 try{
                     FileSystem fileSystem = FileSystem.get(conf);
-                    files = fileSystem.globStatus(path);
+                    files = fileSystem.listStatus(path);
                 }catch(IOException ioe){
                     ioe.printStackTrace();
                 }

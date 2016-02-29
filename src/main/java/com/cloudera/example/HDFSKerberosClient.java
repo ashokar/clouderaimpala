@@ -43,9 +43,9 @@ public class HDFSKerberosClient {
             UserGroupInformation.loginUserFromKeytab("arajan@SECURITY.FIRESTREAMS.COM", "/home/ec2-user/arajan/arajan.keytab");
 
             Path path = new Path(args[0]);
-            URI uri = URI.create("webhdfs://ec2-54-226-23-31.compute-1.amazonaws.com:50070");
+            URI uri = URI.create("webhdfs://ec2-54-226-23-31.compute-1.amazonaws.com:50070/");
             FileSystem fileSystem = FileSystem.get(uri,conf);
-            FileStatus[] files = fileSystem.globStatus(path);
+            FileStatus[] files = fileSystem.listStatus(path);
             System.out.println("Listing "+args[0]);
                 for (FileStatus file : files ){
                     System.out.println(file.getPath().getName());
