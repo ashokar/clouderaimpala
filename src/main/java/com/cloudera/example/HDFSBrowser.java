@@ -97,6 +97,8 @@ public class HDFSBrowser {
             {
                 System.out.println("Folder to list "+folderPath);
                 Configuration conf = new Configuration();
+                conf.set("hadoop.security.authentication", "KERBEROS");
+
 
                 // Conf object will read the HDFS configuration parameters from these
                 // XML files.
